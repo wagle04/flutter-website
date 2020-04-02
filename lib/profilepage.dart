@@ -20,25 +20,23 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: AnimatedBackGroundWidget(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                TopBar(screenWidth: screenWidth, screenHeight: screenHeight),
-                Greetings(screenWidth: screenWidth),
-                ImageContainer(
-                  screenWidth: screenWidth,
-                  screenHeight: screenHeight,
-                ),
-                AnimatedTexts(screenWidth: screenWidth),
-                BottomBar(
-                  screenWidth: screenWidth,
-                  screenHeight: screenHeight,
-                ),
-              ],
-            );
-          },
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              TopBar(screenWidth: screenWidth, screenHeight: screenHeight),
+              Greetings(screenWidth: screenWidth),
+              ImageContainer(
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+              ),
+              AnimatedTexts(screenWidth: screenWidth),
+              BottomBar(
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+              ),
+            ],
+          ),
         ),
       ),
     );
