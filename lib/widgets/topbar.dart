@@ -1,6 +1,7 @@
 import 'dart:html' as html;
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:website/widgets/drawlogo.dart';
 
 class TopBar extends StatelessWidget {
@@ -30,6 +31,20 @@ class TopBar extends StatelessWidget {
             child: Container(
               height: screenHeight * 0.123,
               width: screenWidth * 0.15625,
+              child: Align(
+                child: Padding(
+                  padding: EdgeInsets.only(right: 10.0),
+                  child: Text(
+                    "Built using",
+                    style: GoogleFonts.poppins(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10,
+                    ),
+                  ),
+                ),
+                alignment: Alignment.bottomRight,
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(screenWidth * 0.0065 * 2),
                 image: DecorationImage(
