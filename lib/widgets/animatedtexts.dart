@@ -19,8 +19,9 @@ class AnimatedTexts extends StatelessWidget {
         RotateAnimatedTextKit(
           totalRepeatCount: 1000,
           isRepeatingAnimation: true,
-          pause: Duration(milliseconds: 0),
+          pause: Duration(microseconds: 1),
           duration: Duration(milliseconds: 2500),
+          displayFullTextOnTap: false,
           text: [
             "Flutter  🚀",
             "Dart  🎯",
@@ -35,7 +36,8 @@ class AnimatedTexts extends StatelessWidget {
           textStyle: GoogleFonts.poppins(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: screenWidth * 0.039,
+            fontSize:
+                screenWidth < 500 ? screenWidth * 0.065 : screenWidth * 0.039,
           ),
         ),
       ],

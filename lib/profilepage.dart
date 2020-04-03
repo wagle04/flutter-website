@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:website/widgets/animatedbackground.dart';
 import 'package:website/widgets/animatedtexts.dart';
@@ -14,7 +15,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -22,23 +22,16 @@ class _ProfilePageState extends State<ProfilePage> {
       body: AnimatedBackGroundWidget(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            return SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  TopBar(screenWidth: screenWidth, screenHeight: screenHeight),
-                  Greetings(screenWidth: screenWidth),
-                  ImageContainer(
-                    screenWidth: screenWidth,
-                    screenHeight: screenHeight,
-                  ),
-                  AnimatedTexts(screenWidth: screenWidth),
-                  BottomBar(
-                    screenWidth: screenWidth,
-                    screenHeight: screenHeight,
-                  ),
-                ],
-              ),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                TopBar(screenWidth: screenWidth),
+                Greetings(screenWidth: screenWidth),
+                ImageContainer(screenWidth: screenWidth),
+                AnimatedTexts(screenWidth: screenWidth),
+                BottomBar(screenWidth: screenWidth),
+              ],
             );
           },
         ),

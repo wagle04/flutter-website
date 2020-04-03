@@ -13,11 +13,11 @@ class Greetings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         SizedBox(
-          width: screenWidth * 0.15,
+          width: screenWidth < 500 ? screenWidth * 0.2 : screenWidth * 0.15,
           child: TypewriterAnimatedTextKit(
             isRepeatingAnimation: true,
             totalRepeatCount: 100,
@@ -31,7 +31,8 @@ class Greetings extends StatelessWidget {
             textStyle: GoogleFonts.bioRhyme(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: screenWidth * 0.039,
+              fontSize:
+                  screenWidth < 500 ? screenWidth * 0.05 : screenWidth * 0.039,
             ),
           ),
         ),

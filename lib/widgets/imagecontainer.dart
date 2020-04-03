@@ -4,11 +4,9 @@ class ImageContainer extends StatefulWidget {
   const ImageContainer({
     Key key,
     @required this.screenWidth,
-    this.screenHeight,
   }) : super(key: key);
 
   final double screenWidth;
-  final double screenHeight;
 
   @override
   _ImageContainerState createState() => _ImageContainerState();
@@ -34,13 +32,20 @@ class _ImageContainerState extends State<ImageContainer>
 
   @override
   Widget build(BuildContext context) {
+    var multiplier = widget.screenWidth < 500 ? 0.25 : 0.078125;
+    var height = widget.screenWidth < 500
+        ? widget.screenWidth * 0.5
+        : widget.screenWidth * 0.15;
+    var width = widget.screenWidth < 500
+        ? widget.screenWidth * 0.5
+        : widget.screenWidth * 0.15;
     return SizedBox(
-      height: widget.screenWidth * 0.15,
-      width: widget.screenWidth * 0.15,
+      height: height,
+      width: width,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
-              _radius.value * widget.screenWidth * 0.078125),
+              _radius.value * widget.screenWidth * multiplier),
           border: Border.all(color: Colors.white, width: 1),
           image: DecorationImage(
             fit: BoxFit.cover,
